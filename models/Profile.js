@@ -7,7 +7,7 @@ const ProfileSchema = new mongoose.Schema({
   location: { type: String },
   status: { type: String, required: true },
   skills: { type: [String], required: true },
-  experiens: [
+  experience: [
     {
       title: {
         type: String,
