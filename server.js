@@ -1,4 +1,5 @@
 const express = require("express");
+const path = require("path");
 const morgan = require("morgan");
 const connectDB = require("./config/db");
 
@@ -23,6 +24,15 @@ app.use(`${BASE_URL}/auth`, require("./routes/auth"));
 app.use(`${BASE_URL}/users`, require("./routes/users"));
 app.use(`${BASE_URL}/profile`, require("./routes/profile"));
 app.use(`${BASE_URL}/post`, require("./routes/post"));
+
+// Server static assets in Production
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("/build"));
+
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "build", "index.html"));
+  });
+}
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server listen on port ${PORT}`));
