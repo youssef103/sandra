@@ -2,6 +2,8 @@ const express = require("express");
 const path = require("path");
 const morgan = require("morgan");
 const connectDB = require("./config/db");
+const graphqlHTTP = require("express-graphql");
+const schema = require("./graphql/schema");
 
 const app = express();
 const BASE_URL = "/api";
@@ -18,6 +20,14 @@ app.use(
 );
 
 app.use(morgan("tiny"));
+
+app.use(
+  `${BASE_URL}/graphql`,
+  graphqlHTTP({
+    schema,
+    graphiql: true,
+  })
+);
 
 // API Endpoints/Define Routes
 app.use(`${BASE_URL}/auth`, require("./routes/auth"));
