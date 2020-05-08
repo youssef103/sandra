@@ -6,8 +6,8 @@ module.exports = {
       "always",
       [
         // as examples
-        "app",
-        "common",
+        /* "app",
+        "common",*/
       ],
     ],
   },
