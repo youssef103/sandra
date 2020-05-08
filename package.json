@@ -7,12 +7,12 @@
     "start": "node server",
     "server": "nodemon server",
     "dev": "nodemon server & (cd client && npm start)",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
     "release": "standard-version -- CI=true  --no-verify",
     "release:minor": "standard-version -- CI=true  --no-verify --release-as minor",
     "release:patch": "standard-version -- CI=true  --no-verify --release-as patch",
     "release:major": "standard-version -- CI=true  --no-verify --release-as major",
     "commit": "git-cz",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
     "publish:heroku": "git push heroku master"
   },
   "keywords": [],
@@ -32,19 +32,22 @@
     "morgan": "^1.10.0",
     "standard-version": "^8.0.0"
   },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
+    }
+  },
   "devDependencies": {
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "@ptsecurity/commitlint-config": "^1.0.0",
     "cz-conventional-changelog": "3.2.0",
     "nodemon": "^2.0.3"
   },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
-    }
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
     }
   }
 }
