@@ -1,4 +1,5 @@
-const express = require("express");
+//const express = require("express");
+import express from "express";
 const path = require("path");
 const morgan = require("morgan");
 const connectDB = require("./config/db");

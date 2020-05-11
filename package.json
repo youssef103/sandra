@@ -4,8 +4,11 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "node server",
-    "server": "nodemon server",
+    "start-apollo": "nodemon index",
+    "start-gql-yoga": "nodemon gql-yoga.js --ext js,graphql --exce babel-node",
+    "start-gql-yoga2": "nodemon gql-yoga2.js --ext js,graphql --exce babel-node",
+    "start": "node server  --exce babel-node",
+    "server": "nodemon server  --exce babel-node",
     "dev": "nodemon server & (cd client && npm start)",
     "release": "standard-version -- CI=true  --no-verify",
     "release:minor": "standard-version -- CI=true  --no-verify --release-as minor",
@@ -19,6 +22,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "apollo-server": "^2.13.0",
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
     "bcryptjs": "^2.4.3",
     "config": "^3.3.1",
     "express": "^4.17.1",
@@ -30,7 +36,8 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.11",
     "morgan": "^1.10.0",
-    "standard-version": "^8.0.0"
+    "standard-version": "^8.0.0",
+    "uuid": "^8.0.0"
   },
   "husky": {
     "hooks": {
