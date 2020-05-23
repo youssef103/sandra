@@ -1,5 +1,0 @@
-{
-    "mongoURI": "mongodb+srv://admin:admin@sandraconnector-liufv.mongodb.net/test?retryWrites=true&w=majority",
-    "jwtSecret": "myScretToken",
-    "tokenExpiresIn": 36000
-}

@@ -1,7 +1,7 @@
 const express = require("express");
 const path = require("path");
 const morgan = require("morgan");
-const connectDB = require("./config/db");
+const connectDB = require("../config/db");
 const graphqlHTTP = require("express-graphql");
 const schema = require("./graphql/schema");
 
