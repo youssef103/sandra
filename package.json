@@ -37,7 +37,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.11",
     "morgan": "^1.10.0",
-    "standard-version": "^8.0.0",
+    "standard-version": "^8.0.1",
     "uuid": "^8.0.0"
   },
   "husky": {
